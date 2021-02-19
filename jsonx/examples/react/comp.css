@@ -1,0 +1,57 @@
+.title-container {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  border-left: 20px solid transparent;
+}
+
+.title-top {
+  position: relative;
+}
+
+.title-bottom {
+  position: relative;
+}
+
+.title-top .title-span {
+  background-color: transparent;
+  padding: 10px 30px;
+}
+
+.title-bottom .math {
+  font-size: 66px;
+}
+
+.title-top-square {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #591463;
+  z-index: -1;
+}
+
+.title-bottom-square {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #9A2689;
+  z-index: -1;
+}
+
+.title-bottom .title-span {
+  background-color: transparent;
+  padding: 10px 30px;
+}
+
+.title-container-left-square {
+  position: absolute;
+  left: -20px;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  background-color: #E3288B;
+}
