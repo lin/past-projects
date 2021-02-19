@@ -1,0 +1,66 @@
+.container
+  .row
+    .col-sm-offset-2.col-sm-8.col-xs-12.events-list
+      .row
+        .col-sm-offset-1.col-sm-10.col-xs-12
+          %p#notice= notice
+          .event
+            .title
+              %span.type
+                .event-type{style: "background-color:" + get_event_category_color(@event.category)}
+                  = @event.category
+              %span.event-title
+                %a{href: event_path(@event)}
+                  = @event.title
+            .big-time
+              %i.fa.fa-calendar
+              %a{target: "_blank", href: "http://www.google.com/calendar/render?action=TEMPLATE&text=#{@event.title}&location=#{@event.location}&dates=#{@event.start_time.strftime("%Y%m%dT%H%M%SZ")}/#{@event.end_time.strftime("%Y%m%dT%H%M%SZ")}"}
+                = @event.start_time.strftime("%H:%M")
+                - if @event.end_time
+                  = " to " + @event.end_time.strftime("%H:%M")
+                = ", "
+                = @event.start_time.strftime("%A, %B %d, %Y")
+            .location.big-location
+              - if @event.location.present?
+                %i.fa.fa-location-arrow
+                %a{href: "http://maps.google.com/?q=" + @event.location, target: "_blank"}
+                  = @event.location
+              -# = @event.start_time.to_s + " - " + @event.end_time.to_s
+            %hr
+            .desc
+              = simple_format auto_link(@event.desc)
+            %hr
+            %a{href: events_path}
+              .btn.btn-link.btn-link-left
+                %i.fa.fa-angle-left
+                Back to events list
+
+-# <p id="notice"><%= notice %></p>
+-#
+-# <p>
+-#   <strong>Title:</strong>
+-#   <%= @event.title %>
+-# </p>
+-#
+-# <p>
+-#   <strong>Time:</strong>
+-#   <%= @event.start_time %>
+-# </p>
+-#
+-# <p>
+-#   <strong>Location:</strong>
+-#   <%= @event.location %>
+-# </p>
+-#
+-# <p>
+-#   <strong>Desc:</strong>
+-#   <%= @event.desc %>
+-# </p>
+-#
+-# <p>
+-#   <strong>Category:</strong>
+-#   <%= @event.category %>
+-# </p>
+-#
+-# <%= link_to 'Edit', edit_event_path(@event) %> |
+-# <%= link_to 'Back', events_path %>

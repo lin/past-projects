@@ -1,0 +1,17 @@
+.container
+  .row
+    .col-sm-offset-2.col-sm-8.col-xs-12.events-list
+      .row
+        .col-sm-offset-1.col-sm-10.col-xs-12
+          %a{href: events_path}
+            .btn.btn-link.btn-link-left
+              %i.fa.fa-angle-left
+              Back to events list
+          %hr
+          %h4 New Event
+          = render 'form'
+          %hr
+          %a{href: events_path}
+            .btn.btn-link.btn-link-left
+              %i.fa.fa-angle-left
+              Back to events list

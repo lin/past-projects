@@ -1,0 +1,78 @@
+.container
+  .row
+    .col-sm-offset-2.col-sm-8.col-xs-12.events-list
+      %h3 All events
+      %a{href: new_event_path}
+        .btn.btn-inverse
+          %i.fa.fa-plus
+          Add new event
+      %hr
+      - @events_group.each do |day, events|
+        .day
+          = day.strftime("%A, %m/%d/%Y")
+        - events.each do |event|
+          .event.row
+            .left.col-sm-2.col-xs-12
+              .time
+                %i.fa.fa-clock-o
+                = event.start_time.strftime("%H:%M")
+                - if event.end_time
+                  %span.end-time
+                    = " - " + event.end_time.strftime("%H:%M")
+            .right.col-sm-10.col-xs-12
+              .title
+                %span.type
+                  .event-type{style: "background-color:" + get_event_category_color(event.category)}
+                    = event.category
+                %span.event-title
+                  %a{href: event_path(event)}
+                    = event.title
+              .location
+                - if event.location.present?
+                  %a{href: "http://maps.google.com/?q=" + event.location, target: "_blank"}
+                    = "Location: " + event.location
+                -# = event.start_time.to_s + " - " + event.end_time.to_s
+              -# .desc
+              -#   = truncate event.desc, length: 130
+            .col-xs-12
+              %hr
+
+-# <p id="notice"><%= notice %></p>
+-#
+-# <i class="fa fa-heart">
+-# </i>
+-# <div class="btn btn-primary">Click me</div>
+-#
+-# <h1>Listing Events</h1>
+-#
+-# <table>
+-#   <thead>
+-#     <tr>
+-#       <th>Title</th>
+-#       <th>Time</th>
+-#       <th>Location</th>
+-#       <th>Desc</th>
+-#       <th>Type</th>
+-#       <th colspan="3"></th>
+-#     </tr>
+-#   </thead>
+-#
+-#   <tbody>
+-#     <% @events.each do |event| %>
+-#       <tr>
+-#         <td><%= event.title %></td>
+-#         <td><%= event.start_time %></td>
+-#         <td><%= event.location %></td>
+-#         <td><%= event.desc %></td>
+-#         <td><%= event.category %></td>
+-#         <td><%= link_to 'Show', event %></td>
+-#         <td><%= link_to 'Edit', edit_event_path(event) %></td>
+-#         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+-#       </tr>
+-#     <% end %>
+-#   </tbody>
+-# </table>
+-#
+-# <br>
+-#
+-# <%= link_to 'New Event', new_event_path %>
