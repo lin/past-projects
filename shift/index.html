@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- ==============
+    vendors -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link href="./css/fontawesome-all.css" rel="stylesheet">
+  <script src="./js/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <!-- ============== -->
+
+  <!-- ==============
+    main stylesheets -->
+  <link rel="stylesheet" href="./style.css">
+  <!-- ============== -->
+
+  <title>排班系统 - paibanxitong.com - created by team kwei </title>
+
+</head>
+
+<body >
+
+  <div class="container">
+    <h4><i class="far fa-calendar-alt"></i>排班系统</h4>
+    <hr/>
+    <form id='control-form'>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputState">人数</label>
+          <select id="number-of-people" class="form-control">
+            <option value="8">8</option>
+            <option selected value="9">9</option>
+            <option value="10" >10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">月份</label>
+          <select id="next-month" class="form-control">
+            <option  selected value="5">五月</option>
+            <option value="6">六月</option>
+            <option value="7">七月</option>
+            <option value="8">八月</option>
+            <option  value="9">九月</option>
+            <option value="10">十月</option>
+            <option value="11">十一月</option>
+            <option value="12">十二月</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">分步进行</label>
+          <select id="step" class="form-control">
+            <option value="10" selected>全排</option>
+            <option value="1">排夜班</option>
+            <option value="2">排白班和中班</option>
+            <option value="3">排好排的值班</option>
+            <option value="4">排难排的值班</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputState">左右平移</label>
+          <select id="shift-left" class="form-control">
+            <option  selected value="-1">最佳排班</option>
+            <option  value="0">0</option>
+            <option value="1">1</option>
+            <option  value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option  value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option  value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option  value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">夜班周期</label>
+          <select id="type-of-shift" class="form-control">
+            <option selected value="0">小大下休休休</option>
+            <option value="1">小大下休休</option>
+            <option value="2">小大下休</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">夜班算法</label>
+          <select id="night-rule" class="form-control">
+            <option selected value="0" >一夜加两夜</option>
+            <option  value="1">连上三夜</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <hr/>
+    <!-- <div class="spinner">
+      <i class="fas fa-circle-notch fa-spin"></i> 正在排班中...
+    </div> -->
+    <div id='message-panel'></div>
+    <div id="score-panel"></div>
+  </div>
+
+  <table id="main-table" class="table table-bordered" ></table>
+
+  <div class="container">
+    <hr/>
+    <div class="text-center">
+      <h4><i class="far fa-chart-bar"></i>当前排班表分析</h4>
+      <hr/>
+      <p>
+          评分原则：值班相当于2个白班，夜班相当于0.8个白班，中班相当于1.3个白班
+      </p>
+      <p>
+          因为双休和节假日的影响，必然有人白班少于平均数，但其值班或者夜班数量一定多于平均值
+      </p>
+      <p>
+          几乎不会出现连休5天以上的情况；因为听班上的概率低，其公平性和权值都没有进行细致考虑
+      </p>
+      <table id="analytics-table" class="table table-bordered table-striped " ></table>
+    </div>
+    <!-- <hr/>
+    <div class="explain">
+      <h5>注释：</h5>
+      <ul>
+        <li>评分标准：一个白班一分；一个值班相当于两个白班；一个夜班相当于一个半白班；一个中班相当于1.3个白班</li>
+        <li>夜班，白班，中班和一些值班是按照算法进行。而剩下的难于分配的值班，是根据遍历所有可能，找到了一个标准方差最低的方案。</li>
+      </ul>
+    </div> -->
+  </div>
+
+  <div class="logo text-center">
+    <img id='logo' src="logo.png" alt="" width="80">
+  </div>
+
+  <!-- ==============
+    config javascript -->
+  <script src="config.js" charset="utf-8"></script>
+  <!-- ============== -->
+
+  <!-- ==============
+    utils javascript -->
+  <script src="./utils/array.js" charset="utf-8"></script>
+  <script src="./utils/time.js" charset="utf-8"></script>
+  <script src="./utils/data.js" charset="utf-8"></script>
+  <script src="./utils/checkers.js" charset="utf-8"></script>
+  <script src="./utils/finders.js" charset="utf-8"></script>
+  <script src="./utils/counters.js" charset="utf-8"></script>
+  <script src="./utils/analyze.js" charset="utf-8"></script>
+  <!-- ============== -->
+
+  <!-- ==============
+    adders javascript -->
+  <script src="./add/night.js" charset="utf-8"></script>
+  <script src="./add/day.js" charset="utf-8"></script>
+  <script src="./add/noon.js" charset="utf-8"></script>
+  <script src="./add/duty-easy.js" charset="utf-8"></script>
+  <script src="./add/duty-hard.js" charset="utf-8"></script>
+  <script src="./add/on-call.js" charset="utf-8"></script>
+  <!-- TODO -->
+  <script src="./add/enum.js" charset="utf-8"></script>
+  <script src="./add/final.js" charset="utf-8"></script>
+  <!-- ============== -->
+
+  <!-- ==============
+    main javascripts -->
+  <script src="draw.js" charset="utf-8"></script>
+  <script src="core.js" charset="utf-8"></script>
+  <!-- ============== -->
+
+</body>
+</html>
