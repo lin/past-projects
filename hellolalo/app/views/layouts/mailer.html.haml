@@ -1,0 +1,28 @@
+/ Boilerplate template from: https://github.com/seanpowell/Email-Boilerplate
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    = render "layouts/mailer/head"
+  %body
+    // this(#backgroundTable) is actually the real body tag
+    %table#backgroundTable{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+      %tr
+        %td{:valign => "top"}
+
+          -# //header
+          -# %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0"}
+          -#   %tr
+          -#     %td#header{:valign => "top"}
+          -#       = render "layouts/mailer/header"
+
+          //body
+          %table.table-block{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+            %tr
+              %td#body{:valign => "top"}
+                = yield
+
+          //footer
+          %table.table-block{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+            %tr
+              %td#footer{:valign => "top"}
+                = render "layouts/mailer/footer"

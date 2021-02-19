@@ -1,0 +1,38 @@
+%nav.navbar
+  .container-fluid
+
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#top-nav", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "/"}
+        = image_tag "logo.png", height: "110px"
+
+    / Collect the nav links, forms, and other content for toggling
+    #top-nav.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", "data-delay" => "0", :href => "#", "data-close-others" => "false"}
+            Download
+          %ul.dropdown-menu#download-dropdown
+            %li
+              %a{:href => "https://itunes.apple.com/us/app/lalo-connected-campus/id1025204400?mt=8"} iOS
+            %li
+              %a{:href => "https://play.google.com/store/apps/details?id=com.hellolalo.Lalo"} Android
+        %li
+          %a{:href => "/press.zip"} Press
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", "data-delay" => "0", :href => "#", "data-close-others" => "false"}
+            Support
+          %ul.dropdown-menu
+            %li
+              %a{:href => "https://twitter.com/lalolifeline", :target => "_blank"} Twitter
+            %li
+              %a{"data-target" => "#messageModal", "data-toggle" => "modal", href: "javascript:void(0)"} Message
+            %li
+              %a{:href => "/legal"} Legal
+        %li
+          %a{:href => "http://www.blog.hellolalo.com", :target => "_blank"} Blog

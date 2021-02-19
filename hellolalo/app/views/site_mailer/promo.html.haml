@@ -1,0 +1,87 @@
+// top
+%table#top{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+  %tr
+    %td
+      %table
+        %tr
+          %td.left
+            %table.logo{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+              %tr
+                %td
+                  = image_tag "Lalo-email.png"
+            %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+              %tr
+                %td.helvetica
+                  Find campus events nearby with
+                  %br
+                  %strong
+                    2, 543, 223
+                  of your closest friends.
+
+          %td.right{:align => "center"}
+            = image_tag "jpg-1.jpg", height: "388px"
+      %table{style: "width: 100%;"}
+        %tr
+          %td{:align => "center"}
+            = image_tag "bouncing.gif"
+
+
+// Get it free
+%table#get-it-free{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "background: url(\"#{asset_url('jpg-arrow.jpg')}\") no-repeat center 25px;"}
+  %tr
+    %td.left.futura.bold
+      Get it free.
+    %td.right
+      %a{href: "https://itunes.apple.com/us/app/lalo-connected-campus/id1025204400?mt=8"}
+        = image_tag "jpg-app-store.jpg", width: "120px"
+      %br
+      %a{href: "https://play.google.com/store/apps/details?id=com.hellolalo.Lalo"}
+        = image_tag "jpg-android.jpg", width: "120px"
+
+// Nearby
+%table#nearby{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+  %tr
+    %td.left
+      %table.logo{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %tr
+          %td
+            = image_tag "nav.png"
+      %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %tr
+          %td.futura
+            See everything going on
+            %br
+            nearby and everything
+            %br
+            coming up.
+    %td.right
+      = image_tag "jpg-2-cut.jpg", height: "316px"
+
+// thought
+%table#thought{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+  %tr
+    %td.left
+      = image_tag "jpg-3-cut.jpg", height: "353px"
+    %td.right
+      %table.logo{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %tr
+          %td
+            = image_tag "chat.png"
+      %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+        %tr
+          %td.futura
+            Share your thoughts,
+            %br
+            no matter how strange.
+
+// free
+%table#free{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "background: #5DD0CF url(\"#{asset_url('free-bg.png')}\") no-repeat center;"}
+  %tr
+    %td.futura{:align => "center"}
+      .h1
+        Want free swag?
+      Represent your school and get
+      %br
+      free stickers, banners, and more.
+      %br
+      = image_tag "button.jpg", style: "padding-top: 20px;"

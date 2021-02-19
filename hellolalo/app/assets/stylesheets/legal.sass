@@ -1,0 +1,57 @@
+@import "media"
+
+#legal-page
+
+  @include media(desktop)
+    .row
+      display: table
+      margin-left: -60px
+
+    [class*="col-"]
+      float: none
+      display: table-cell
+      vertical-align: top
+
+  @include media(desktop)
+    .col-sm-1
+      width: 10%
+
+  .left
+    padding-top: 20px
+    padding-bottom: 20px
+    padding-left: 0
+    padding-right: 0
+    background-color: #AEFFE3
+    text-align: center
+    // @include media(desktop)
+    //   height: 7350px
+
+  .middle
+    .nav-tabs
+      padding-top: 30px
+      font-family: "Helvetica"
+      font-weight: bold
+      font-size: 48px
+      border-bottom: none
+
+    .nav-tabs > li
+      float: none
+      padding: 0 15px
+      > a
+        color: #D0D0D0
+        padding: 0
+        display: inline
+
+        &:hover
+          background-color: transparent
+          color: #F059FF
+          border: none
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:focus,
+    .nav-tabs > li.active > a:hover
+      border: none
+      color: #F059FF
+
+  .right
+    padding-top: 40px
+    padding-bottom: 40px

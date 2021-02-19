@@ -1,0 +1,131 @@
+// Place all the styles related to the site controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "media";
+
+#success-message {
+  padding: 30px;
+}
+
+#site-home-page {
+  background-color: #AEFFE3;
+  background-size: cover;
+  height: 100vh;
+  font-family: "Helvetica";
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 18px;
+
+  .navbar {
+    border: none;
+  }
+
+  .navbar-nav > li > a {
+
+    font-size: 22px;
+    color: white;
+
+    &:hover,
+    &:focus{
+      background-color: transparent;
+      color: #F059FF;
+    }
+  }
+
+  .navbar-toggle .icon-bar {
+    background-color: white;
+  }
+
+  .nav .open > a,
+  .nav .open > a:focus,
+  .nav .open > a:hover {
+    background-color: transparent;
+  }
+
+  #download-dropdown {
+    right: 35px;
+  }
+
+  .navbar-nav > li > .dropdown-menu {
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+    @include media(phone) {
+      text-align: left;
+    };
+
+    > li {
+
+      > a {
+        color: white;
+        font-weight: bold;
+        @include media(phone) {
+          padding-left: 10px;
+        };
+
+        &:hover {
+          color: #DCDCDC;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .nav > li {
+    padding: 20px 15px 0;
+  }
+
+  .nav > li > a {
+    padding: 0;
+  }
+
+  .container-fluid > .navbar-collapse {
+
+    &.in, &.collapsing {
+      background-color: #6F6F6F;
+    }
+
+    ul {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .navbar-brand {
+    margin-left: 30px;
+    @include media(phone) {
+      margin-left: 0;
+      img {
+        height: 30px;
+        margin-top: -5px;
+        margin-left: 5px;
+      }
+    };
+  }
+
+  .dropdown-menu {
+    min-width: 0;
+    right: auto;
+  }
+
+  .dropdown-menu > li > a {
+    padding: 0 10px;
+    font-size: 15px;
+  }
+
+  .top {
+    padding-top: 100px;
+    @include media(phone) {
+      padding-top: 160px;
+    };
+
+    img {
+      @include media(phone) {
+        height: 150px;
+      };
+    }
+  }
+}

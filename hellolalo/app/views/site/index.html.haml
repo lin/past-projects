@@ -1,0 +1,25 @@
+/ Modal
+#messageModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-body
+        %div.clearfix
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} &times;
+        = form_tag '/message', method: "post" do
+          .form-group
+            %input.form-control{:placeholder => "Name", :name => "name"}
+          .form-group
+            %input.form-control{:placeholder => "Email", :type => "email", :name => "email"}
+          .form-group
+            %textarea.form-control{:placeholder => "Message", rows: 4, :name => "message"}
+
+          %button.btn.btn-link{:type => "submit"} Submit
+- if flash[:notice]
+  #success-message
+    = flash[:notice]
+/ site home page
+#site-home-page
+  = render "bar"
+  .top.text-center
+    = image_tag "Lemr.png", height: "300px"

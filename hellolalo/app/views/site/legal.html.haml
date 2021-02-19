@@ -1,0 +1,20 @@
+/ legal page
+#legal-page.container-fluid
+  .row
+    .left.col-xs-12.col-sm-1
+      %a{href: "/"}
+        = image_tag "Lemr.png", height: "120px"
+    .middle.col-xs-12.col-sm-5
+      %ul.nav.nav-tabs
+        %li.active
+          %a{"data-toggle" => "tab", :href => "#terms"} TERMS OF USE
+        %li
+          %a{"data-toggle" => "tab", :href => "#privacy"} PRIVACY
+
+    .right.col-xs-12.col-sm-5
+      / Tab panes
+      .tab-content
+        #terms.tab-pane.active
+          = render "term"
+        #privacy.tab-pane
+          = render "privacy"
