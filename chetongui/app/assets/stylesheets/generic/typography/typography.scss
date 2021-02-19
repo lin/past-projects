@@ -1,0 +1,58 @@
+// generic typographic setting.
+
+@import "../variables/*";
+@import "../mixins/*";
+
+body {
+  font-family: $fz;
+  color: $text-color;
+}
+
+.page-title {
+  color: $subtitle-color;
+  font-size: $page-title-size;
+  @include media(phone) {
+    font-size: 28px;
+  };
+}
+
+.page-subtitle {
+  color: $title-color;
+  font-size: $page-subtitle-size;
+  @include media(phone) {
+    font-size: 22px;
+  };
+}
+
+.page-title-white {
+  color: rgba( $white, .9);
+  font-size: $page-title-size;
+  margin-bottom: 15px;
+  @include media(phone) {
+    font-size: 28px;
+  };
+}
+
+.page-subtitle-white {
+  color: $white;
+  font-size: $page-subtitle-size;
+  @include media(phone) {
+    font-size: 22px;
+  };
+}
+
+.section-title {
+  color: $title-color;
+  font-size: $section-title-size;
+  @include media(phone) {
+    font-size: 18px;
+  };
+}
+
+.section-subtitle {
+  color: $subtitle-color;
+  font-size: $section-subtitle-size;
+  @include media(phone) {
+    font-size: 18px;
+  };
+}

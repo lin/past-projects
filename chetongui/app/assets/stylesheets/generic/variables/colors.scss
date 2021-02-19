@@ -1,0 +1,28 @@
+// define all the color related variables
+
+$black:           #000;
+$white:           #fff;
+
+$gold:            #bdb099;
+$blue:            #0578CC;
+$light-blue:      #08c;
+$red:             #ff4a00;
+
+$dark-grey:       #333;
+$grey:            #666;
+$light-grey:      #8c8c8c;
+$lighter-grey:    #999;
+$lightest-grey:   #F2F2F2;
+
+$brand-color:     $blue;
+
+// ======================
+
+$text-color:      $dark-grey;
+$desc-color:      $grey;
+$desc-color-alt:  $light-grey;
+$title-color:     $text-color;
+$subtitle-color:  $desc-color;
+$grey-bg-color:   $lightest-grey;
+
+$link-color:      #08c;

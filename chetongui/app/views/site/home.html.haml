@@ -1,0 +1,105 @@
+#home-page.container-fluid
+  #top.section.row
+    .col-xs-12
+      %a{href: "/"}
+        .logo.wow.fadeInDown
+          = image_tag "logo-white.png", height: "80px"
+      .lead.wow.fadeIn
+        .page-subtitle-white
+          一路同行 为您精选最好的汽车用品
+        .page-title-white
+          内心的声音将带你到达最远的地方
+      .action-button.wow.fadeIn
+        .action
+          %a{href: TMALL_LINK, target: "_blank"}
+            = image_tag "tmall.png", height: "44px"
+        .action
+          %a{href: "http://shop1940708.koudaitong.com/", target: "_blank"}
+            = image_tag "wechat.png", height: "44px"
+
+  #vido.section.row
+    .section-left.col-sm-6.col-xs-12
+      .vido-logo
+        = image_tag "vido.png", class: "wow slideInLeft"
+      .section-title.wow.fadeInUp
+        高清 静音 超耐用
+      .section-subtitle.wow.fadeInUp
+        尖端工艺，专注实用性
+      .section-desc.wow.fadeInUp
+        以航天军工级高碳整体金属为内支撑母体，摒弃了传统二代通用雨刮器依赖支点分布施力方式，打造真正的私人定制
+
+  #water-gun.section.row
+    .vido-logo.wow.fadeInDown
+      = image_tag "vido.png"
+    .section-title.wow.fadeInDown
+      高压便携洗车水枪
+    .section-subtitle.wow.fadeInDown
+      超大出水量，超大冲击力，8毫米黄金比例口径
+    .action-button
+      = image_tag "water-gun.png", class: "wow slideInUp"
+
+  #recorder.section.row
+    .section-title.wow.fadeInDown
+      高清夜视行车记录仪
+    .section-subtitle.wow.fadeInDown
+      采用行业领先的A7芯片方案，成像更加清晰细腻
+    .action-button.wow.fadeInUp
+      = image_tag "soon-white.png", height: "44px"
+
+
+  #purifier.section.row
+    .section-right.col-sm-6.col-sm-offset-6.col-xs-12
+      .section-title.wow.slideInRight
+        超静音车载空气净化器
+      .section-subtitle.wow.slideInRight
+        可滑动 单晶硅 德国进口机芯 日本进口传感器
+      .section-desc.wow.slideInRight
+        该汽车空气净化器采用的太阳能板为单晶硅7V/2W。美国ST主控芯片，日本OMRON汽车振动传感器。 无刷电机，风扇采用德国进口机芯,只为35db极致低噪。高效纳米杀菌涂层板，多重过滤系统：活性炭过滤层+光触媒过滤层。双重负离子净化，24小时细菌去除率99%，24小时甲醛去除率98%。加香薰，和香球，具有汽车空气净化器独具的加香功能。 独有滑盖体验，有别于其他汽车空气净化器。
+      .action-button.wow.slideInRight
+        = image_tag "soon-green.png", height: "44px"
+
+  #bottom.section.row
+    .section-left.col-sm-6.col-xs-12
+      .logo
+        = image_tag "logo-icon-white.png", height: "40px"
+      .about-chet
+        车同轨是全球领先的汽车综合零配件解决方案提供商，我们致力于通过移动互联网，将精选过的汽车零配件及未来移动技术送到您的手上，让全球在路上的你们可以无惧风雨，无惧挑战，一路驰骋，到达人生最远的地方。
+    .section-right.col-sm-6.col-xs-12
+      .type
+        公司地址：
+      .detail
+        北京市中关村软件园
+      .contact
+        .phone
+          .type
+            联系方式：
+          .detail
+            400 - 636 - 8799
+        .social-widget
+          .weibo
+            :plain
+              <wb:follow-button uid="5345091064" type="red_2" width="136" height="24" ></wb:follow-button>
+          .qq
+            :plain
+              <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2053433153&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2053433153:51" alt="客服小欧" title="客服小欧"/></a>
+      .qr-codes
+        .qr-weibo
+          .type
+            微博二维码：
+          = image_tag "qr-weibo.png", height: "120px"
+        .qr-wechat
+          .type
+            微信二维码：
+          = image_tag "qr-wechat.png", height: "120px"
+
+
+    .copyright.col-xs-12
+      &copy; 2015 车同轨科技
+
+:javascript
+  new WOW().init();
+  $(document).ready(function() {
+    $('#top').on('webkitAnimationEnd', function(e) {
+      $(this).addClass('visible');
+    });
+  });

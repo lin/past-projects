@@ -1,0 +1,318 @@
+@import "../generic/variables/*";
+@import "../generic/mixins/*";
+
+#home-page {
+
+  img {
+      max-width: 100%;
+  }
+
+  #top {
+    background: #4C4D51;
+    background: image-url("bg.png") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    @include media(phone) {
+      background-size: 1000px auto;
+    };
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 100px;
+    opacity: 0;
+
+    -webkit-animation-name: fade-in;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 2s;
+
+    &.visible {
+      opacity: 1;
+    }
+
+    @include media(phone) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    };
+
+    .logo {
+      opacity: .8;
+    }
+
+     .lead {
+      padding-top: 180px;
+      @include media(phone) {
+        padding-top: 50px;
+      };
+     }
+
+     .action-button {
+       margin-top: 40px;
+
+       .action {
+         display: inline-block;
+         @include media(phone) {
+           margin-bottom: 15px;
+         };
+       }
+
+       padding-bottom: 100px;
+       @include media(phone) {
+         padding-bottom: 30px;
+       };
+
+       a {
+         margin-right: 15px;
+       }
+     }
+  }
+
+  #vido {
+    padding: 180px 0 200px 60px;
+    @include media(phone) {
+      padding: 30px 0 50px 20px;
+    };
+    background-image: image-url("wiper.png");
+    @include media(phone) {
+      background-size: 90%;
+    };
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-position-y: 50px;
+    border: 1px solid #eee;
+
+    .section-left {
+      padding-top: 40px;
+      @include media(phone) {
+        padding-top: 150px;
+      };
+
+      .vido-logo {
+        padding-bottom: 30px;
+      }
+
+      .section-subtitle {
+        letter-spacing: 2.6px;
+        color: $gold;
+        margin-bottom: 15px;
+      }
+
+      .section-desc {
+        line-height: 1.8;
+        color: $light-grey;
+      }
+    }
+  }
+
+  #purifier {
+    padding: 180px 0 180px 60px;
+    background-image: image-url("air-purifier.png");
+    @include media(phone) {
+      padding: 30px 10px 350px;
+      background-position-x: 50%;
+      background-position-y: 110%;
+      background-size: 80%;
+    };
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-position-x: 50px;
+    background-position-y: 80px;
+
+    .section-title {
+      letter-spacing: 5px;
+      color: $red;
+      font-size: 36px;
+      margin-bottom: 15px;
+      @include media(phone) {
+        font-size: 20px;
+      };
+    }
+
+    .section-subtitle {
+      letter-spacing: 2.6px;
+      color: $gold;
+      margin-bottom: 15px;
+      @include media(phone) {
+        font-size: 18px;
+      };
+    }
+
+    .section-desc {
+      line-height: 1.8;
+      color: $light-grey;
+      padding-right: 30px;
+      @include media(phone) {
+        font-size: 16px;
+        padding-right: 0;
+      };
+    }
+
+    .action-button {
+      margin-top: 20px;
+    }
+
+  }
+
+  #recorder {
+    color: $white;
+    text-align: center;
+    text-shadow: 0 1px 2px #000;
+    background-color: #020202;
+    background-image: image-url("recorder.png");
+    @include media(phone){
+      background-size: 70%;
+    };
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: -50px;
+
+    padding: 200px 0 250px;
+    @include media(phone){
+      padding: 250px 0 50px;
+    };
+
+    .section-title {
+      color: $white;
+      opacity: .9;
+      letter-spacing: 4.3px;
+      font-size: 48px;
+      margin-bottom: 30px;
+      @include media(phone) {
+        font-size: 24px;
+      };
+    }
+
+    .section-subtitle {
+      font-size: 28px;
+      color: $white;
+      opacity: 0.6;
+      letter-spacing: 2.6px;
+      @include media(phone) {
+        font-size: 20px;
+        padding: 0 15px;
+      };
+    }
+
+    .action-button {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+  }
+
+  #water-gun {
+    background-color: #F4F4F4;
+    text-align: center;
+    padding-top: 30px;
+    overflow: hidden;
+
+    .vido-logo {
+      padding-top: 20px;
+      padding-bottom: 30px;
+    }
+
+    img {
+      @include media(phone) {
+        max-width: 70%;
+      };
+    }
+
+    .section-title {
+      letter-spacing: 5px;
+      color: $red;
+      font-size: 36px;
+      margin-bottom: 15px;
+      @include media(phone) {
+        font-size: 20px;
+      };
+    }
+
+    .section-subtitle {
+      letter-spacing: 2.6px;
+      color: $gold;
+      margin-bottom: 15px;
+      @include media(phone) {
+        font-size: 18px;
+        padding: 0 20px;
+      };
+    }
+  }
+
+  #bottom {
+    background-color:#2D3033;
+    padding: 50px 50px 30px;
+    color: lighten($desc-color, 15%);
+    @include media(phone) {
+      padding: 30px 15px 20px;
+      font-size: 14px;
+    };
+
+    .logo {
+      margin-bottom: 35px;
+    }
+
+    .about-chet {
+      line-height: 1.5;
+    }
+
+    .contact {
+      .phone,
+      .social-widget {
+        display: inline-block;
+      }
+
+      .social-widget {
+        padding-left: 20px;
+
+        .weibo, .qq {
+          display: inline-block;
+        }
+
+        .qq img {
+          margin-top: -16px;
+        }
+      }
+    }
+
+    .section-right {
+      padding-left: 50px;
+      @include media(phone) {
+        padding-top: 20px;
+        padding-left: 15px;
+      };
+
+      .type {
+        letter-spacing: 1.5px;
+        margin-bottom: 8px;
+        color: $desc-color;
+      }
+
+      .detail {
+        margin-bottom: 15px;
+      }
+    }
+
+    .qr-codes {
+      .qr-wechat,
+      .qr-weibo {
+        display: inline-block;
+        margin-right: 50px;
+      }
+
+      .type {
+          margin-bottom: 20px;
+      }
+    }
+
+    .copyright {
+      margin-top: 50px;
+      @include media(phone) {
+        margin-top: 30px;
+      };
+      color: $desc-color;
+      font-size: 14px;
+    }
+  }
+
+}
